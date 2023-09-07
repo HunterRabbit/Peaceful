@@ -52,8 +52,8 @@ public class PlayerMove : MonoBehaviour
 
         //애니메이터 매개 변수 설정
         moveMagnitude = moveDirection.magnitude;
-        animator.SetBool("isWalk", moveMagnitude > 0 && moveMagnitude <= walkSpeed);
-        animator.SetBool("isRun", moveMagnitude > walkSpeed);
+        animator.SetBool("isWalk", moveMagnitude > 0);
+        animator.SetBool("isRun", moveMagnitude > 0 && Input.GetKey(KeyCode.LeftShift));
 
         // 이동 적용
         characterController.Move(moveDirection * Time.deltaTime); // 캐릭터 컨트롤러를 통해 이동 적용
